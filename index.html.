@@ -1,0 +1,509 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PROJECT: ECLIPSE</title>
+
+  <!-- СВЯЗЬ С CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div id="loading-screen">
+  <div class="loading-logo">ECLIPSE</div>
+  <div class="loading-line"></div>
+  <p>ИНИЦИАЛИЗАЦИЯ СИСТЕМЫ...</p>
+</div>
+
+<section id="login-screen" class="screen">
+  <div class="login-box">
+    <div class="symbol">◉</div>
+    <p class="small-label">ЗАКРЫТАЯ СИСТЕМА ДОСТУПА</p>
+    <h1>PROJECT:<span>ECLIPSE</span></h1>
+    <p class="muted">ЦЕНТР ИССЛЕДОВАНИЯ АНОМАЛИЙ</p>
+
+    <div class="login-warning">
+      ВНИМАНИЕ: ДОСТУП ТОЛЬКО ДЛЯ СОТРУДНИКОВ
+    </div>
+
+    <label>ИДЕНТИФИКАТОР</label>
+    <input id="login-id" placeholder="Введите ID">
+
+    <label>ПАРОЛЬ</label>
+    <input id="login-password" type="password"
+      placeholder="Введите пароль">
+
+    <button id="login-button">ВОЙТИ В СИСТЕМУ →</button>
+    <p id="login-error"></p>
+
+    <p class="login-footer">ECLIPSE CORPORATION · 1987–2026</p>
+  </div>
+</section>
+
+<div id="app" class="hidden">
+
+  <aside class="sidebar">
+    <div class="brand">
+      <span class="brand-symbol">◉</span>
+      <div>
+        <b>ECLIPSE</b>
+        <small>RESEARCH DIVISION</small>
+      </div>
+    </div>
+
+    <div class="user-card">
+      <div class="avatar">EC</div>
+      <div>
+        <b>АГЕНТ EC-1047</b>
+        <small>УРОВЕНЬ ДОСТУПА: 03</small>
+      </div>
+    </div>
+
+    <p class="menu-caption">ГЛАВНОЕ</p>
+    <button class="nav-btn active" data-page="dashboard">◈ Обзор</button>
+    <button class="nav-btn" data-page="archive">▤ Архив аномалий</button>
+    <button class="nav-btn" data-page="missions">⌖ Операции</button>
+    <button class="nav-btn" data-page="map">◎ Карта объектов</button>
+
+    <p class="menu-caption">ИССЛЕДОВАНИЯ</p>
+    <button class="nav-btn" data-page="laboratory">⌬ Лаборатория</button>
+    <button class="nav-btn" data-page="cameras">▣ Видеонаблюдение</button>
+    <button class="nav-btn" data-page="agents">♙ Сотрудники</button>
+
+    <p class="menu-caption">КОММУНИКАЦИИ</p>
+    <button class="nav-btn" data-page="messages">✉ Сообщения</button>
+    <button class="nav-btn" data-page="terminal">⌨ Терминал</button>
+    <button class="nav-btn" data-page="secrets">◌ Секретные файлы</button>
+
+    <div class="sidebar-bottom">
+      <div class="connection">
+        <span class="green-dot"></span>
+        СИСТЕМА АКТИВНА
+      </div>
+      <button id="logout-button">↪ ВЫЙТИ</button>
+    </div>
+  </aside>
+
+  <main class="main-content">
+
+    <header class="topbar">
+      <div>
+        <span class="top-label">ГЛАВНЫЙ КОМАНДНЫЙ ЦЕНТР</span>
+        <h2 id="page-title">Обзор системы</h2>
+      </div>
+
+      <div class="top-info">
+        <span id="clock">00:00:00</span>
+        <span class="status-pill">● ОНЛАЙН</span>
+        <div class="top-avatar">EC</div>
+      </div>
+    </header>
+
+    <!-- ОБЗОР -->
+    <section class="page active" id="dashboard">
+
+      <div class="welcome-banner">
+        <div>
+          <span class="eyebrow">СЕКРЕТНО · УРОВЕНЬ 03</span>
+          <h1>Добро пожаловать,<br>агент EC-1047.</h1>
+          <p>Система зафиксировала несколько необъяснимых событий.</p>
+          <button class="primary-btn" data-open="alert-case">
+            ИЗУЧИТЬ ОТЧЁТ →
+          </button>
+        </div>
+        <div class="eclipse-visual">
+          <div class="eclipse-ring"></div>
+        </div>
+      </div>
+
+      <div class="section-heading">
+        <h3>Состояние организации</h3>
+        <span>ОБНОВЛЕНО АВТОМАТИЧЕСКИ</span>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-card">
+          <span>ОБЪЕКТЫ В АРХИВЕ</span>
+          <strong>247</strong>
+          <small>+3 за последнюю неделю</small>
+        </div>
+        <div class="stat-card">
+          <span>АКТИВНЫЕ ОПЕРАЦИИ</span>
+          <strong>08</strong>
+          <small>2 требуют внимания</small>
+        </div>
+        <div class="stat-card">
+          <span>СОТРУДНИКИ</span>
+          <strong>1 482</strong>
+          <small>Система персонала активна</small>
+        </div>
+        <div class="stat-card warning-card">
+          <span>УРОВЕНЬ УГРОЗЫ</span>
+          <strong>ПОВЫШЕН</strong>
+          <small>Обнаружена неизвестная активность</small>
+        </div>
+      </div>
+
+      <div class="dashboard-grid">
+        <div class="panel">
+          <div class="panel-header">
+            <h3>Последние события</h3>
+            <span class="live-tag">LIVE</span>
+          </div>
+          <div class="event-list">
+            <div class="event">
+              <span class="event-time">22:41</span>
+              <div><b>Неизвестный сигнал</b><small>Объект E-09 · Северный сектор</small></div>
+              <span class="event-mark danger">!</span>
+            </div>
+            <div class="event">
+              <span class="event-time">21:18</span>
+              <div><b>Доступ к архиву</b><small>Файл #104 открыт</small></div>
+              <span class="event-mark">●</span>
+            </div>
+            <div class="event">
+              <span class="event-time">19:03</span>
+              <div><b>Потеря связи</b><small>Исследовательская станция 04</small></div>
+              <span class="event-mark danger">!</span>
+            </div>
+            <div class="event">
+              <span class="event-time">17:56</span>
+              <div><b>Новая запись</b><small>В архив добавлен объект E-247</small></div>
+              <span class="event-mark">●</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-header">
+            <h3>Важное сообщение</h3>
+            <span class="message-dot"></span>
+          </div>
+          <div class="urgent-message">
+            <span class="eyebrow">ОТ ДИРЕКТОРА · 22:30</span>
+            <h2>Не отвечайте на сигнал.</h2>
+            <p>Если вы услышите собственный голос в записи с камеры наблюдения — немедленно сообщите в отдел безопасности.</p>
+            <p class="muted">Это не учебная тревога.</p>
+            <button class="secondary-btn" data-page="messages">ОТКРЫТЬ СООБЩЕНИЯ</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-header">
+          <h3>Недавно открытые материалы</h3>
+          <span>3 ДОКУМЕНТА</span>
+        </div>
+        <div class="quick-files">
+          <button class="file-item" data-open="file-104">
+            <span>▤</span><b>ДОСЬЕ #104</b><small>Секретно</small>
+          </button>
+          <button class="file-item" data-open="file-209">
+            <span>▧</span><b>ЗАПИСЬ #209</b><small>Ограничено</small>
+          </button>
+          <button class="file-item" data-open="file-001">
+            <span>▤</span><b>ПРОТОКОЛ #001</b><small>Совершенно секретно</small>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- АРХИВ -->
+    <section class="page" id="archive">
+      <div class="page-intro">
+        <span class="eyebrow">БАЗА ДАННЫХ · 247 ЗАПИСЕЙ</span>
+        <h1>Архив аномалий</h1>
+        <p>Зарегистрированные объекты, явления и необъяснимые события.</p>
+      </div>
+
+      <div class="toolbar">
+        <input id="archive-search" placeholder="Поиск по архиву...">
+        <select id="archive-filter">
+          <option value="all">Все категории</option>
+          <option value="danger">Высокая опасность</option>
+          <option value="unknown">Неизвестные</option>
+          <option value="stable">Стабильные</option>
+        </select>
+      </div>
+
+      <div class="archive-grid">
+        <article class="anomaly-card" data-category="danger" data-open="anomaly-001">
+          <div class="anomaly-image image-one"><span>ОБЪЕКТ 001</span></div>
+          <div class="anomaly-info">
+            <span class="danger-label">КРАСНЫЙ УРОВЕНЬ</span>
+            <h3>Зеркало № 001</h3>
+            <p>Отражение, которое не повторяет движения наблюдателя.</p>
+            <small>ЛОКАЦИЯ: СЕКТОР B-12</small>
+          </div>
+        </article>
+
+        <article class="anomaly-card" data-category="unknown" data-open="anomaly-009">
+          <div class="anomaly-image image-two"><span>ОБЪЕКТ 009</span></div>
+          <div class="anomaly-info">
+            <span class="unknown-label">НЕИЗВЕСТНЫЙ</span>
+            <h3>Сигнал 009</h3>
+            <p>Радиопередача, поступающая из заброшенного комплекса.</p>
+            <small>ЛОКАЦИЯ: СЕВЕРНЫЙ СЕКТОР</small>
+          </div>
+        </article>
+
+        <article class="anomaly-card" data-category="stable" data-open="anomaly-014">
+          <div class="anomaly-image image-three"><span>ОБЪЕКТ 014</span></div>
+          <div class="anomaly-info">
+            <span class="stable-label">СТАБИЛЬНЫЙ</span>
+            <h3>Чёрный куб</h3>
+            <p>Предмет неизвестного происхождения с необычной структурой.</p>
+            <small>ЛОКАЦИЯ: ЛАБОРАТОРИЯ 02</small>
+          </div>
+        </article>
+
+        <article class="anomaly-card" data-category="danger" data-open="anomaly-027">
+          <div class="anomaly-image image-four"><span>ОБЪЕКТ 027</span></div>
+          <div class="anomaly-info">
+            <span class="danger-label">КРАСНЫЙ УРОВЕНЬ</span>
+            <h3>Пустой коридор</h3>
+            <p>Камеры фиксируют движение в помещении без людей.</p>
+            <small>ЛОКАЦИЯ: СТАНЦИЯ 04</small>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ОПЕРАЦИИ -->
+    <section class="page" id="missions">
+      <div class="page-intro">
+        <span class="eyebrow">ОПЕРАТИВНЫЙ ОТДЕЛ</span>
+        <h1>Активные операции</h1>
+        <p>Задания, расследования и специальные поручения организации.</p>
+      </div>
+
+      <div class="mission-list">
+        <article class="mission-card">
+          <span class="danger-label">ВЫСОКИЙ ПРИОРИТЕТ</span>
+          <h2>Операция «Тихий сигнал»</h2>
+          <p>Исследовать источник неизвестной передачи.</p>
+          <div class="progress"><div style="width:35%"></div></div>
+          <small>ВЫПОЛНЕНО: 35%</small>
+          <button class="primary-btn" data-open="mission-1">ПРОДОЛЖИТЬ</button>
+        </article>
+
+        <article class="mission-card">
+          <span class="unknown-label">РАССЛЕДОВАНИЕ</span>
+          <h2>Операция «Забытый этаж»</h2>
+          <p>Установить, почему в документах отсутствует этаж 13.</p>
+          <div class="progress"><div style="width:10%"></div></div>
+          <small>ВЫПОЛНЕНО: 10%</small>
+          <button class="primary-btn" data-open="mission-2">ОТКРЫТЬ ДЕЛО</button>
+        </article>
+      </div>
+    </section>
+
+    <!-- КАРТА -->
+    <section class="page" id="map">
+      <div class="page-intro">
+        <span class="eyebrow">ГЕОГРАФИЧЕСКАЯ СЕТЬ</span>
+        <h1>Карта объектов</h1>
+        <p>Расположение исследовательских станций и аномальных зон.</p>
+      </div>
+
+      <div class="map-panel">
+        <div class="map-grid">
+          <span class="map-point point-a" data-open="map-a">A</span>
+          <span class="map-point point-b" data-open="map-b">B</span>
+          <span class="map-point point-c" data-open="map-c">C</span>
+          <span class="map-point point-d" data-open="map-d">D</span>
+          <div class="map-center">ECLIPSE<br>NETWORK</div>
+        </div>
+        <div class="map-legend">
+          <p><span class="green-dot"></span> Стабильный объект</p>
+          <p><span class="red-dot"></span> Опасная зона</p>
+          <p><span class="blue-dot"></span> Исследовательская станция</p>
+          <small>ВЫМЫШЛЕННАЯ КАРТА ВНУТРИ ИГРОВОГО МИРА</small>
+        </div>
+      </div>
+    </section>
+
+    <!-- ЛАБОРАТОРИЯ -->
+    <section class="page" id="laboratory">
+      <div class="page-intro">
+        <span class="eyebrow">НАУЧНЫЙ ОТДЕЛ</span>
+        <h1>Лаборатория</h1>
+        <p>Результаты исследований и анализ аномальных материалов.</p>
+      </div>
+
+      <div class="lab-grid">
+        <div class="panel">
+          <h3>Анализ сигнала 009</h3>
+          <div class="signal-visual">〰 〰 〰 〰 〰</div>
+          <p>Частота: 87.4 MHz</p>
+          <p>Источник: не установлен</p>
+          <span class="danger-label">НЕОБЪЯСНИМО</span>
+        </div>
+        <div class="panel">
+          <h3>Последний эксперимент</h3>
+          <h1 class="lab-number">EX-204</h1>
+          <p>Образец: неизвестный материал</p>
+          <p>Результат: ожидает проверки</p>
+          <button class="secondary-btn" data-open="experiment">ОТКРЫТЬ ОТЧЁТ</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- КАМЕРЫ -->
+    <section class="page" id="cameras">
+      <div class="page-intro">
+        <span class="eyebrow">СЛУЖБА БЕЗОПАСНОСТИ</span>
+        <h1>Видеонаблюдение</h1>
+        <p>Последние записи с камер исследовательского комплекса.</p>
+      </div>
+
+      <div class="camera-grid">
+        <div class="camera-feed" data-open="camera-01">
+          <div class="camera-screen">CAM 01<br>СЕКТОР A</div>
+          <span>КАМЕРА 01 · ГЛАВНЫЙ ВХОД</span>
+        </div>
+        <div class="camera-feed" data-open="camera-02">
+          <div class="camera-screen">CAM 02<br>СЕКТОР B</div>
+          <span>КАМЕРА 02 · ЛАБОРАТОРИЯ</span>
+        </div>
+        <div class="camera-feed" data-open="camera-03">
+          <div class="camera-screen">CAM 03<br>СЕКТОР C</div>
+          <span>КАМЕРА 03 · КОРИДОР 13</span>
+        </div>
+        <div class="camera-feed" data-open="camera-04">
+          <div class="camera-screen">NO SIGNAL</div>
+          <span>КАМЕРА 04 · СТАНЦИЯ 04</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- СОТРУДНИКИ -->
+    <section class="page" id="agents">
+      <div class="page-intro">
+        <span class="eyebrow">БАЗА ПЕРСОНАЛА</span>
+        <h1>Сотрудники</h1>
+        <p>Зарегистрированные участники исследовательской программы.</p>
+      </div>
+
+      <div class="agents-grid">
+        <div class="agent-card" data-open="agent-director">
+          <div class="agent-photo">D-01</div>
+          <h3>Александр Рейн</h3>
+          <p>ДИРЕКТОР ОРГАНИЗАЦИИ</p>
+          <small>СТАТУС: НА СВЯЗИ</small>
+        </div>
+        <div class="agent-card" data-open="agent-lee">
+          <div class="agent-photo">R-07</div>
+          <h3>Мира Ли</h3>
+          <p>ГЛАВНЫЙ ИССЛЕДОВАТЕЛЬ</p>
+          <small>СТАТУС: НЕИЗВЕСТЕН</small>
+        </div>
+        <div class="agent-card" data-open="agent-ross">
+          <div class="agent-photo">S-12</div>
+          <h3>Даниэль Росс</h3>
+          <p>СЛУЖБА БЕЗОПАСНОСТИ</p>
+          <small>СТАТУС: НА СЛУЖБЕ</small>
+        </div>
+      </div>
+    </section>
+
+    <!-- СООБЩЕНИЯ -->
+    <section class="page" id="messages">
+      <div class="page-intro">
+        <span class="eyebrow">ВНУТРЕННЯЯ СЕТЬ</span>
+        <h1>Сообщения</h1>
+        <p>Закрытая переписка сотрудников организации.</p>
+      </div>
+
+      <div class="chat-list">
+        <button class="chat-item" data-open="chat-director">
+          <span class="chat-avatar">AR</span>
+          <span><b>Александр Рейн</b><small>Не открывайте файл 001.</small></span>
+          <span class="message-dot"></span>
+        </button>
+        <button class="chat-item" data-open="chat-mira">
+          <span class="chat-avatar">ML</span>
+          <span><b>Мира Ли</b><small>Я нашла кое-что в архиве...</small></span>
+          <span class="message-dot"></span>
+        </button>
+        <button class="chat-item" data-open="chat-unknown">
+          <span class="chat-avatar">??</span>
+          <span><b>НЕИЗВЕСТНЫЙ ОТПРАВИТЕЛЬ</b><small>Ты уже видел меня.</small></span>
+          <span class="danger-label">НОВОЕ</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- ТЕРМИНАЛ -->
+    <section class="page" id="terminal">
+      <div class="page-intro">
+        <span class="eyebrow">СИСТЕМНЫЙ ИНТЕРФЕЙС</span>
+        <h1>Терминал</h1>
+        <p>Введите команду или секретный код для доступа к дополнительным материалам.</p>
+      </div>
+
+      <div class="terminal-window">
+        <div class="terminal-top">ECLIPSE TERMINAL v.4.07 <span>● ONLINE</span></div>
+        <div id="terminal-output">
+          <p>СИСТЕМА ECLIPSE ЗАПУЩЕНА.</p>
+          <p>Введите HELP для просмотра доступных команд.</p>
+          <p>-----------------------------------</p>
+        </div>
+        <div class="terminal-input-line">
+          <span>AGENT@ECLIPSE:~$</span>
+          <input id="terminal-input" placeholder="Введите команду...">
+          <button id="terminal-send">↵</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- СЕКРЕТЫ -->
+    <section class="page" id="secrets">
+      <div class="page-intro">
+        <span class="eyebrow">ЗАПРЕЩЁННЫЙ ДОСТУП</span>
+        <h1>Секретные файлы</h1>
+        <p>Некоторые документы были скрыты даже от сотрудников третьего уровня.</p>
+      </div>
+
+      <div class="secret-grid">
+        <button class="secret-file" data-open="file-001">
+          <span>▤</span><b>ПРОЕКТ 001</b><small>ЗАБЛОКИРОВАНО</small>
+        </button>
+        <button class="secret-file" data-open="file-013">
+          <span>▤</span><b>ПРОТОКОЛ 013</b><small>ЗАБЛОКИРОВАНО</small>
+        </button>
+        <button class="secret-file" data-open="file-last">
+          <span>▤</span><b>ПОСЛЕДНЯЯ ЗАПИСЬ</b><small>ЗАБЛОКИРОВАНО</small>
+        </button>
+      </div>
+      <p class="secret-hint">ПОДСКАЗКА: ИЩИТЕ КОДЫ В АРХИВЕ И СООБЩЕНИЯХ.</p>
+    </section>
+
+    <footer class="footer">
+      PROJECT: ECLIPSE · ВСЕ ДАННЫЕ ЯВЛЯЮТСЯ ЧАСТЬЮ ВЫМЫШЛЕННОЙ ИГРЫ
+    </footer>
+
+  </main>
+</div>
+
+<!-- ВСПЛЫВАЮЩИЕ ОКНА -->
+<div id="modal" class="modal hidden">
+  <div class="modal-box">
+    <button id="modal-close">✕</button>
+    <span class="eyebrow" id="modal-label">СЕКРЕТНЫЙ ДОКУМЕНТ</span>
+    <h2 id="modal-title">Заголовок</h2>
+    <div id="modal-content"></div>
+  </div>
+</div>
+
+<div id="toast"></div>
+
+<!-- СВЯЗЬ С JAVASCRIPT -->
+<script src="script.js"></script>
+
+</body>
+</html>
+
